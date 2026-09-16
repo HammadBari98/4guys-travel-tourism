@@ -1,2 +1,6 @@
 # Archived/unused legacy files from the original HTTrack mirror (not part of the live site)
 archive-unused/
+
+# Pre-rendered static build used for the Vercel deployment (generated from the .php pages)
+dist/
+.vercel/
