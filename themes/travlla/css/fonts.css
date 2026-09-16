@@ -1,0 +1,48 @@
+/*!
+ * Self-hosted web fonts for Travlla theme (Envato compliant — no CDN).
+ * Families: Afacad (headings), Figtree (body), Kaushan Script (script accents).
+ * woff2 variable fonts, latin subset. Source: Google Fonts, downloaded locally.
+ */
+
+/* Afacad — headings */
+@font-face {
+    font-family: 'Afacad';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('../fonts/afacad/afacad-normal-400_700.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Afacad';
+    font-style: italic;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('../fonts/afacad/afacad-italic-400_700.woff2') format('woff2');
+}
+
+/* Figtree — body */
+@font-face {
+    font-family: 'Figtree';
+    font-style: normal;
+    font-weight: 300 900;
+    font-display: swap;
+    src: url('../fonts/figtree/figtree-normal-300_900.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Figtree';
+    font-style: italic;
+    font-weight: 300 900;
+    font-display: swap;
+    src: url('../fonts/figtree/figtree-italic-300_900.woff2') format('woff2');
+}
+
+/* Kaushan Script — decorative accents */
+@font-face {
+    font-family: 'Kaushan Script';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/kaushan-script/kaushan-normal-400.woff2') format('woff2');
+}

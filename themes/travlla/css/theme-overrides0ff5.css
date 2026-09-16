@@ -1,0 +1,391 @@
+/**
+ * Global theme overrides.
+ *
+ * bootstrap-select dropdowns (hero-search Location / Activity selects, and any
+ * other <select> the theme upgrades via jQuery('select').selectpicker()) render
+ * a Bootstrap dropdown whose selected option inherits Bootstrap's default blue
+ * .active background. Recolour the open menu to the theme teal and round it,
+ * matching the tour-listing sort dropdown. The toggle/field itself is already
+ * styled by the hero-search CSS, so only the menu is themed here.
+ */
+/* When a .form-select upgrades to bootstrap-select, the wrapper keeps the
+   .form-select class — so Bootstrap's native background arrow shows on top of
+   bootstrap-select's own caret (double chevron). Drop the native one. */
+/* Service detail — sidebar widgets (search / recent tours / destinations / categories). */
+.side-bar .widget-title {
+    font-size: 20px;
+    color: #066168;
+    margin-bottom: 16px;
+}
+
+.side-bar .trv-sidebar-search .form-control {
+    border: 1px solid #e4e9ee;
+    border-radius: 30px 0 0 30px;
+}
+
+.side-bar .trv-sidebar-search .site-button {
+    border-radius: 0 30px 30px 0;
+    padding: 0 18px;
+}
+
+.side-bar .trv-recent-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.side-bar .trv-recent-name {
+    color: #066168;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.3;
+    display: block;
+}
+
+.side-bar .trv-recent-price {
+    color: #ffaa0d;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.side-bar .trv-tag-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.side-bar .trv-tag-list li a {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid #e4e9ee;
+    border-radius: 30px;
+    color: #346065;
+    font-size: 14px;
+    transition: border-color .15s ease, background-color .15s ease, color .15s ease;
+}
+
+.side-bar .trv-tag-list li a:hover {
+    border-color: #066168;
+    background: #eafafa;
+    color: #066168;
+}
+
+/* Blog detail — author bio box (post author). */
+.trv-author-box {
+    background: #f4fbfb;
+    border: 1px solid #e4e9ee;
+    border-radius: 16px;
+    padding: 22px 24px;
+    margin: 30px 0;
+}
+
+.trv-author-box .trv-author-avatar img {
+    border-radius: 50%;
+}
+
+.trv-author-box .trv-author-label {
+    font-size: 13px;
+    color: #66868a;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+.trv-author-box .trv-author-name {
+    margin: 2px 0 6px;
+    color: #066168;
+    font-size: 20px;
+}
+
+.trv-author-box .trv-author-info p {
+    margin: 0;
+    color: #346065;
+    font-size: 14px;
+}
+
+.bootstrap-select.form-select {
+    background-image: none;
+    padding-right: 0;
+}
+
+.bootstrap-select .dropdown-menu {
+    border: 1px solid #e4e9ee;
+    border-radius: 12px;
+    padding: 6px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .12);
+}
+
+.bootstrap-select .dropdown-menu li a.dropdown-item {
+    border-radius: 8px;
+    padding: 9px 14px;
+    color: #346065;
+    transition: background-color .15s ease, color .15s ease;
+}
+
+.bootstrap-select .dropdown-menu li a.dropdown-item:hover,
+.bootstrap-select .dropdown-menu li a.dropdown-item:focus {
+    background: #eafafa;
+    color: #066168;
+}
+
+/* Selected option → theme teal (was Bootstrap blue) */
+.bootstrap-select .dropdown-menu li.selected a.dropdown-item,
+.bootstrap-select .dropdown-menu li a.dropdown-item.active,
+.bootstrap-select .dropdown-menu li a.dropdown-item.selected {
+    background: #066168 !important;
+    color: #fff !important;
+}
+
+.bootstrap-select .dropdown-menu li.selected a.dropdown-item small,
+.bootstrap-select .dropdown-menu li a.dropdown-item.active small {
+    color: rgba(255, 255, 255, .6) !important;
+}
+
+/* bootstrap-select live-search box (when present) */
+.bootstrap-select .dropdown-menu .bs-searchbox .form-control {
+    border: 1px solid #e4e9ee;
+    border-radius: 8px;
+}
+
+.bootstrap-select .dropdown-menu .bs-searchbox .form-control:focus {
+    border-color: #066168;
+    box-shadow: 0 0 0 .15rem rgba(6, 97, 104, .15);
+}
+
+/* ── Banner-2 hero (hero-search style-2): robust height ───────────────────────
+   The template hero uses a fixed height (950px) tuned for a 1–2 word title.
+   CMS titles vary in length; a long title overflowed the fixed box and the
+   in-flow search bar spilled into the next section. Use min-height so the hero
+   grows with its content instead of overflowing. */
+.trv-banner-2-wrap { height: auto; min-height: 950px; }
+.trv-banner-2-wrap .trv-banner-2-overlay { height: auto; min-height: 880px; }
+.trv-banner-2-wrap .trv-banner-2-content-section { height: auto; min-height: 880px; }
+
+/* ── Header style-2 (centered-logo): pin the logo to the true horizontal centre
+   (aligned with the circular badge) regardless of menu length. Menu flows on the
+   left, action icons pushed right; the centred logo sits in the gap. Menu is
+   width-capped so it never runs under the logo. */
+.header-style-2 .main-bar { position: relative; }
+.header-style-2 .main-bar .logo-header {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%); margin: 0; order: 0;
+}
+.header-style-2 .main-bar .header-nav { flex: 0 0 auto; }
+.header-style-2 .main-bar .header-nav .nav { flex-wrap: nowrap; }
+.header-style-2 .main-bar .extra-nav { margin-left: auto; }
+@media (max-width: 1399px) {
+    .header-style-2 .main-bar .logo-header { position: static; transform: none; }
+}
+
+/* ── hero search: the Location/Date/Traveler label icons render oversized
+   (Botble outputs explicit 36x36 width/height attrs). Constrain them across every
+   hero style — all variants share the .trv-search-st1-column column markup. */
+.trv-search-st1-column label i img,
+.trv-search-st1-column .form-group label img {
+    width: 20px;
+    height: auto;
+    margin-inline-end: 5px;
+}
+
+/* ── Botble admin bar offset ──────────────────────────────────────────────────
+   When an admin is logged in, Botble shows a 40px fixed bar at the top and adds
+   body.show-admin-bar. The theme's overlay (absolute) and sticky (fixed) headers
+   sit relative to the viewport, so they hide under the admin bar. Push them down
+   by the 40px admin-bar height. */
+body.show-admin-bar .site-header.is-fixed,
+body.show-admin-bar .site-header.is-fixed .main-bar {
+    top: 40px !important;
+}
+@media (min-width: 992px) {
+    body.show-admin-bar .site-header.header-style-1:not(.is-fixed),
+    body.show-admin-bar .site-header.header-style-2:not(.is-fixed) {
+        top: 75px; /* 35px design offset + 40px admin bar */
+    }
+}
+
+/* ── Comment form (fob-comment) — match theme primary color ───────────── */
+.fob-comment-form-section .btn-primary,
+.fob-comment-form-section button[type="submit"] {
+    background-color: var(--primary-color, #066168);
+    border-color: var(--primary-color, #066168);
+}
+.fob-comment-form-section .btn-primary:hover,
+.fob-comment-form-section .btn-primary:focus,
+.fob-comment-form-section .btn-primary:active,
+.fob-comment-form-section button[type="submit"]:hover {
+    background-color: var(--primary-color-hover, #054c52);
+    border-color: var(--primary-color-hover, #054c52);
+}
+.fob-comment-form-section .form-control:focus,
+.fob-comment-list-section .form-control:focus {
+    border-color: var(--primary-color, #066168);
+    box-shadow: 0 0 0 .15rem rgba(6, 97, 104, .15);
+}
+
+/* ── Gallery detail comment area — themed inputs, constrained width ───── */
+.trv-gallery-comments {
+    max-width: 920px;
+    margin: 40px auto 0;
+    padding-top: 40px;
+    border-top: 1px solid #eef0f2;
+}
+.fob-comment-form-section .form-control {
+    border: 1px solid #e2e6ea;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 12px 16px;
+}
+.fob-comment-form-section textarea.form-control {
+    min-height: 130px;
+}
+.fob-comment-form-section label,
+.fob-comment-form-section .form-label {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+.fob-comment-form-section .fob-comment-form-note {
+    margin-bottom: 24px;
+}
+.fob-comment-form-section .btn-primary {
+    border-radius: 10px;
+    padding: 12px 30px;
+    font-weight: 600;
+}
+
+/* ── a11y target-size: expand carousel pagination dot tap area (no visual change) ── */
+.swiper-pagination-bullet {
+    position: relative;
+}
+.swiper-pagination-bullet::before {
+    content: "";
+    position: absolute;
+    inset: -12px;
+}
+
+/* ── Achievement counters: shrink stat labels so each stays on one line ── */
+.trv-achivment-section .trv-icon-title {
+    font-size: 18px;
+    line-height: 26px;
+    white-space: nowrap;
+}
+
+/* ===== Live AJAX tour search dropdown (header search modal) ===== */
+.trv-search-modal #searchform {
+    position: relative;
+}
+
+.trv-search-results {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    margin-top: 12px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+    max-height: 60vh;
+    overflow-y: auto;
+    z-index: 5;
+    text-align: left;
+}
+
+.trv-search-results.open {
+    display: block;
+}
+
+.trv-search-results.is-loading::after {
+    content: "";
+    display: block;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--bs-primary, #16545a), transparent);
+    animation: trv-search-loading 1s linear infinite;
+}
+
+@keyframes trv-search-loading {
+    0% { background-position: -200px 0; }
+    100% { background-position: 200px 0; }
+}
+
+.trv-search-result-list {
+    list-style: none;
+    margin: 0;
+    padding: 8px;
+}
+
+.trv-search-result-item a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    color: inherit;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.trv-search-result-item a:hover {
+    background: #f2f6f6;
+}
+
+.trv-search-result-media,
+.trv-search-result-media img {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+}
+
+.trv-search-result-media img {
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.trv-search-result-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.trv-search-result-name {
+    font-size: 16px;
+    line-height: 1.35;
+    font-weight: 600;
+    color: #1f2d2e;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.trv-search-result-price {
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 500;
+    color: var(--bs-primary, #16545a);
+    opacity: 0.9;
+}
+
+.trv-search-result-all {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    border-top: 1px solid #eee;
+    color: var(--bs-primary, #16545a);
+    text-decoration: none;
+}
+
+.trv-search-result-all:hover {
+    background: #f2f6f6;
+}
+
+.trv-search-result-empty {
+    padding: 22px;
+    text-align: center;
+    font-size: 15px;
+    opacity: 0.7;
+}

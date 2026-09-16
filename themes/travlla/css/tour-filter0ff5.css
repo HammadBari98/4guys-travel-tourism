@@ -1,0 +1,573 @@
+/**
+ * Tour filter panel — turn the hidden-checkbox "chips" (.custom-filter-label)
+ * into compact, clearly-selectable checkbox rows with a teal checked state.
+ * The native checkbox stays visually-hidden (.d-none); the label is the control.
+ */
+.filter-widget {
+    margin-bottom: 1.5rem;
+}
+
+.filter-widget-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.filter-widget-header .filter-icon {
+    display: inline-flex;
+    color: #066168;
+}
+
+.filter-widget-header .filter-title {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #066168;
+}
+
+.filter-option {
+    margin-bottom: 6px;
+}
+
+.custom-filter-check {
+    position: relative;
+}
+
+.custom-filter-label {
+    font-size: 14px;
+    line-height: 1.3;
+    padding: 8px 12px 8px 38px !important;
+    margin: 0;
+    border: 1px solid #e4e9ee !important;
+    border-radius: 8px !important;
+    color: #346065;
+    cursor: pointer;
+    transition: border-color .15s ease, background-color .15s ease, color .15s ease;
+}
+
+/* checkbox indicator box */
+.custom-filter-label::before {
+    content: "";
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border: 2px solid #cbd5e1;
+    border-radius: 4px;
+    background: #fff;
+    transition: background-color .15s ease, border-color .15s ease;
+}
+
+.custom-filter-label:hover {
+    border-color: #066168 !important;
+}
+
+/* checked state — highlight row + fill the box */
+.custom-filter-check input:checked + .custom-filter-label {
+    border-color: #066168 !important;
+    background-color: #eafafa;
+    color: #066168;
+    font-weight: 600;
+}
+
+.custom-filter-check input:checked + .custom-filter-label::before {
+    background: #066168;
+    border-color: #066168;
+}
+
+/* check mark */
+.custom-filter-check input:checked + .custom-filter-label::after {
+    content: "";
+    position: absolute;
+    left: 17px;
+    top: 46%;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+/* "Show more / less" toggle */
+.filter-toggle-btn {
+    color: #066168;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.filter-toggle-btn:hover {
+    text-decoration: underline;
+}
+
+/* Range inputs (Price / Duration) — hide the native number spinners that render
+   inconsistently (e.g. a stray up/down box on one field) and keep both inputs
+   evenly sized so the Min – Max row stays clean. */
+.filter-widget input[type="number"]::-webkit-outer-spin-button,
+.filter-widget input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.filter-widget input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    flex: 1 1 0;
+    min-width: 0;
+    /* Proper bordered field (was borderless + oversized with an ugly grey focus box) */
+    height: 44px;
+    padding: 8px 14px;
+    font-size: 14px;
+    line-height: 1.3;
+    color: #346065;
+    background-color: #fff;
+    border: 1px solid #e4e9ee;
+    border-radius: 10px;
+    box-shadow: none;
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.filter-widget input[type="number"]::placeholder {
+    color: #9aa9ac;
+}
+
+.filter-widget input[type="number"]:hover {
+    border-color: #cddadb;
+}
+
+.filter-widget input[type="number"]:focus {
+    border-color: #066168;
+    background-color: #fff;
+    box-shadow: 0 0 0 .15rem rgba(6, 97, 104, .15);
+    outline: none;
+}
+
+/* The "–" separator between Min and Max */
+.filter-widget-content .d-flex > .text-muted {
+    flex: 0 0 auto;
+    color: #9aa9ac;
+}
+
+/* ── Tour booking widget — Travelers stepper layout ──────────────────────────
+   .btn-quantity2 is display:inline-block (shared with the search form), so the
+   inline <label> and the <small> help text collided on the stepper's line.
+   In the vertical booking box, stack label / stepper / help on their own rows. */
+.trv-tour-single-r-detail .form-group > .form-label {
+    display: block;
+}
+
+.trv-tour-single-r-detail .quantity.btn-quantity2 {
+    display: inline-flex;
+    width: auto;
+    max-width: 130px;
+    margin-right: 0;
+}
+
+.trv-tour-single-r-detail .form-group > small.text-muted {
+    display: block;
+    margin-top: 8px;
+}
+
+/* ── Tour booking widget — hotel-rating tier selector ─────────────────────────
+   Replace Bootstrap's blue btn-outline-primary with the theme's teal so the
+   booking box matches the rest of the theme (#066168 teal, gold stars). */
+.trv-hotel-tier-btn {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 8px 14px;
+    border: 1.5px solid #d7e3e4;
+    border-radius: 10px;
+    color: #066168;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.2;
+    background: #fff;
+    cursor: pointer;
+    transition: border-color .15s ease, background-color .15s ease, color .15s ease;
+}
+
+.trv-hotel-tier-btn .bi-star-fill {
+    color: #ffaa0d;
+}
+
+.trv-hotel-tier-btn .small {
+    font-weight: 500;
+    opacity: .85;
+}
+
+.trv-hotel-tier-btn:hover {
+    border-color: #066168;
+}
+
+.btn-check:checked + .trv-hotel-tier-btn {
+    background: #066168;
+    border-color: #066168;
+    color: #fff;
+}
+
+.btn-check:checked + .trv-hotel-tier-btn .bi-star-fill {
+    color: #ffd166;
+}
+
+/* ── Tour-detail action row — Compare / Wishlist / Share ──────────────────────
+   Consistent, themed buttons (teal) replacing the unstyled auxero btn-* classes. */
+.trv-tour-actions {
+    flex-wrap: wrap;
+}
+
+.trv-tour-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: 1.5px solid #d7e3e4;
+    color: #066168;
+    background: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    line-height: 1;
+    margin: 0;
+    transition: border-color .15s ease, background-color .15s ease, color .15s ease;
+}
+
+.trv-tour-action--compare {
+    border-radius: 30px;
+    padding: 9px 20px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.trv-tour-action--icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    padding: 0;
+}
+
+.trv-tour-action:hover {
+    border-color: #066168;
+    background: #eafafa;
+}
+
+/* Compare selected → teal fill */
+.trv-tour-action--compare.active {
+    background: #066168;
+    border-color: #066168;
+    color: #fff;
+}
+
+/* Wishlist saved → red fill */
+.trv-tour-action.heart.active {
+    background: #e63946;
+    border-color: #e63946;
+    color: #fff;
+}
+
+/* ── Customer Reviews — rating distribution bars ─────────────────────────────
+   Bootstrap's .progress-bar defaults to blue; recolour to the theme teal. */
+.trv-rating-bar .progress {
+    background-color: #e9eef0;
+    border-radius: 30px;
+}
+
+.trv-rating-bar .progress-bar {
+    background-color: #066168;
+    border-radius: 30px;
+}
+
+.trv-rating-bar-label .bi-star-fill {
+    color: #ffaa0d;
+}
+
+/* ── Add A Review form ───────────────────────────────────────────────────── */
+.box-form-reviews .form-control,
+.box-form-reviews textarea.form-control {
+    background: #fff;
+    border: 1px solid #e4e9ee;
+    border-radius: 10px;
+    padding: 12px 14px;
+    color: #346065;
+}
+
+.box-form-reviews .form-control:focus {
+    border-color: #066168;
+    box-shadow: 0 0 0 0.15rem rgba(6, 97, 104, .15);
+}
+
+/* Submit / login button → theme green CTA (was Bootstrap blue) */
+.box-form-reviews .btn-primary,
+.box-form-reviews button[type="submit"] {
+    background-color: #85d200;
+    border-color: #85d200;
+    color: #000;
+    border-radius: 30px;
+    padding: 11px 28px;
+    font-weight: 600;
+}
+
+.box-form-reviews .btn-primary:hover:not(:disabled),
+.box-form-reviews button[type="submit"]:hover:not(:disabled) {
+    background-color: #76bb00;
+    border-color: #76bb00;
+    color: #000;
+}
+
+.box-form-reviews .btn-primary:disabled {
+    opacity: .65;
+}
+
+/* Star-rating input — toggle the outline/filled SVGs (no CSS = both showed) */
+.form-rating-stars {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 4px;
+    margin-bottom: 16px;
+}
+
+.form-rating-stars input.btn-check {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+}
+
+.form-rating-stars label {
+    cursor: pointer;
+    color: #ffaa0d;
+    line-height: 0;
+    margin: 0;
+}
+
+.form-rating-stars label .star-filled {
+    display: none;
+}
+
+.form-rating-stars label .star-outline {
+    display: inline-block;
+}
+
+.form-rating-stars label:hover .star-outline,
+.form-rating-stars label:hover ~ label .star-outline,
+.form-rating-stars input.btn-check:checked ~ label .star-outline {
+    display: none;
+}
+
+.form-rating-stars label:hover .star-filled,
+.form-rating-stars label:hover ~ label .star-filled,
+.form-rating-stars input.btn-check:checked ~ label .star-filled {
+    display: inline-block;
+}
+
+/* ── Filter panel action buttons (Apply Filters / Reset) ──────────────────────
+   Make them matching-height pills: Apply = green CTA (flex-grow), Reset = themed
+   teal outline (was a mismatched Bootstrap grey rectangle). */
+.filter-actions .site-button {
+    flex: 1 1 auto;
+    justify-content: center;
+    padding: 13px 26px;
+    font-size: 16px;
+    border-radius: 30px;
+}
+
+.filter-actions .filter-reset {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    border-radius: 30px;
+    border: 1.5px solid #d7e3e4;
+    color: #066168;
+    background: #fff;
+    text-decoration: none;
+    transition: border-color .15s ease, background-color .15s ease, color .15s ease;
+}
+
+.filter-actions .filter-reset:hover,
+.filter-actions .filter-reset:focus {
+    border-color: #066168;
+    background: #eafafa;
+    color: #066168;
+}
+
+/* ── Tour listing "Filters" button ────────────────────────────────────────────
+   Botble's filter toggle has no theme CSS, so it fell back to a default .btn with
+   the browser's blue focus ring. Match the teal pill used by the sort dropdown. */
+.btn-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #e4e9ee;
+    border-radius: 30px;
+    padding: 9px 20px;
+    color: #066168;
+    font-weight: 600;
+    background: #fff;
+    transition: border-color .15s ease, color .15s ease, background-color .15s ease;
+}
+
+.btn-filter svg {
+    color: #066168;
+}
+
+.btn-filter:hover,
+.btn-filter:focus,
+.btn-filter:focus-visible,
+.btn-filter[aria-expanded="true"] {
+    border-color: #066168;
+    color: #066168;
+    background: #eafafa;
+    box-shadow: none;
+    outline: none;
+}
+
+/* ── Tour listing sort dropdown ───────────────────────────────────────────────
+   The Botble sort control renders a default Bootstrap dropdown (blue .active item
+   that clashes with the theme). Theme the toggle + menu to the teal palette. */
+.tour-sort-dropdown .dropdown-toggle {
+    border: 1px solid #e4e9ee;
+    border-radius: 30px;
+    padding: 9px 20px;
+    color: #066168;
+    font-weight: 600;
+    background: #fff;
+}
+
+.tour-sort-dropdown .dropdown-toggle:hover,
+.tour-sort-dropdown .dropdown-toggle:focus,
+.tour-sort-dropdown .dropdown-toggle[aria-expanded="true"] {
+    border-color: #066168;
+    background: #fff;
+    color: #066168;
+    box-shadow: none;
+}
+
+.tour-sort-dropdown .dropdown-menu {
+    border: 1px solid #e4e9ee;
+    border-radius: 12px;
+    padding: 6px;
+    margin-top: 6px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .12);
+}
+
+.tour-sort-dropdown .dropdown-item {
+    border-radius: 8px;
+    padding: 9px 14px;
+    color: #346065;
+    font-weight: 500;
+    transition: background-color .15s ease, color .15s ease;
+}
+
+.tour-sort-dropdown .dropdown-item:hover,
+.tour-sort-dropdown .dropdown-item:focus {
+    background: #eafafa;
+    color: #066168;
+}
+
+/* Selected sort → theme teal (was Bootstrap blue) */
+.tour-sort-dropdown .dropdown-item.active,
+.tour-sort-dropdown .dropdown-item:active {
+    background: #066168;
+    color: #fff;
+}
+
+/* Share dropdown */
+.tour-detail-share .share-dropdown {
+    position: absolute;
+    z-index: 20;
+    top: calc(100% + 8px);
+    left: 0;
+    background: #fff;
+    border: 1px solid #e4e9ee;
+    border-radius: 12px;
+    padding: 10px 14px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .12);
+    white-space: nowrap;
+}
+
+/* ── Grid / List view toggle ─────────────────────────────────
+ * The toggle SVGs ship unstyled; without a button surface the active
+ * (white-filled) icon is invisible on the light page. Give each a square
+ * button with a teal active state and white icon. */
+.listing-tabs.menu-tab {
+    gap: 10px;
+}
+
+.listing-tabs .item-menu.layout-tour {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    border: 1px solid #e4e9ee;
+    border-radius: 12px;
+    background: #fff;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.listing-tabs .item-menu.layout-tour:hover {
+    border-color: #066168;
+    box-shadow: 0 6px 16px rgba(6, 97, 104, .12);
+}
+
+.listing-tabs .item-menu.layout-tour:hover svg circle,
+.listing-tabs .item-menu.layout-tour:hover svg rect {
+    stroke: #066168;
+}
+
+.listing-tabs .item-menu.layout-tour.active {
+    background: #066168;
+    border-color: #066168;
+}
+
+/* CSS beats the inline `stroke`/`fill` presentation attributes, so the icon
+ * turns white on the teal active surface. */
+.listing-tabs .item-menu.layout-tour.active svg circle,
+.listing-tabs .item-menu.layout-tour.active svg rect {
+    stroke: #fff;
+    fill: none;
+}
+
+/* ── Compare table remove button ─────────────────────────────
+ * Overlay a clean circular "remove" control on each compared tour image. */
+.trv-tour-com-media {
+    position: relative;
+}
+
+.compare-item-remove-table {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .92);
+    color: #066168;
+    box-shadow: 0 4px 12px rgba(6, 97, 104, .18);
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.compare-item-remove-table:hover {
+    background: #066168;
+    color: #fff;
+}
+
