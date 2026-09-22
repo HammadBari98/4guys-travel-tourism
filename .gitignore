@@ -5,3 +5,7 @@ archive-unused/
 dist/
 .vercel/
 .claude/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
